@@ -2,6 +2,15 @@
 
 A simple pizza ordering system demo built with Laravel and Eloquent ORM. It includes user/admin flows, pizza management, order processing, and role-based access control with admin dashboard.
 
+Home page
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/ddf391d5-90db-43f2-a93b-dc476e2201aa" />
+
+Client page
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/edf772aa-c8f5-40f8-a5c1-26e6802b5101" />
+
+Backoffice page
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/400f0f72-3892-419c-8cd9-ad590995a8c4" />
+
 
 
 ## Overview
@@ -23,7 +32,6 @@ A simple pizza ordering system demo built with Laravel and Eloquent ORM. It incl
 - PHP 7.3+ (XAMPP recommended)
 - MySQL running (XAMPP)
 - Composer installed
-- enabled extension=gd configured php.ini
 
 ## Setup
 1. Clone the repository:
