@@ -6,8 +6,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white">
+                        <strong>{{ __('Dashboard') }}</strong>
+                    </div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -16,12 +18,12 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
-                        <p class="mt-4">
-                            <a class="button-o" href="{{ route('pizzas.index') }}">View All Pizza Orders</a>
-                            <a class="button-o" href="{{ route('pizzas.create') }}">Order a New Pizza</a>
-                            <a class="button-o" href="{{ url('/') }}">Goto Welcome Page</a>
-                        </p>
+                        <p class="mb-3">{{ __('You are logged in!') }}</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a class="btn btn-outline-primary" href="{{ route('pizzas.index') }}">View All Pizza Orders</a>
+                            <a class="btn btn-primary" href="{{ route('pizzas.create') }}">Order a New Pizza</a>
+                            <a class="btn btn-light" href="{{ url('/') }}">Goto Welcome Page</a>
+                        </div>
                     </div>
                 </div>
             </div>

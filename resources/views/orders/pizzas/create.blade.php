@@ -8,7 +8,7 @@
             <div class="col-lg-8">
                 <div class="card shadow-sm">
                     <div class="card-header bg-white">
-                        <h2 class="h5 mb-0">Create a New Pizza</h2>
+                        <h2 class="h5 mb-0">Create a New Pizza Order</h2>
                     </div>
                     <div class="card-body">
                         @if ($errors->any())
@@ -21,7 +21,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('pizzas.store') }}" method="POST">
+                        <form action="{{ route('order.store') }}" method="POST">
                             @csrf
 
                             <div class="mb-3">
@@ -97,13 +97,13 @@
 
                             <div class="d-flex gap-2">
                                 <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Order Pizza</button>
-                                <a class="btn btn-light" href="{{ route('pizzas.index') }}">Cancel</a>
+                                <a class="btn btn-light" href="{{ route('order.index') }}">Cancel</a>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="mt-3">
-                    <a class="btn btn-link" href="{{ route('pizzas.index') }}"><i class="fa-solid fa-arrow-left"></i> Back to all pizzas</a>
+                    <a class="btn btn-link" href="{{ route('order.index') }}"><i class="fa-solid fa-arrow-left"></i> Back to orders</a>
                 </div>
             </div>
         </div>

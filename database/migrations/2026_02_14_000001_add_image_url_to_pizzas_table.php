@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kebabs', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('pizzas', function (Blueprint $table) {
+            $table->string('image_url')->nullable();
         });
     }
 
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kebabs');
+        Schema::table('pizzas', function (Blueprint $table) {
+            $table->dropColumn('image_url');
+        });
     }
 };

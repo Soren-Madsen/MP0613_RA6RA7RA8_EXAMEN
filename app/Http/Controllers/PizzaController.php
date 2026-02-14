@@ -38,19 +38,29 @@ class PizzaController extends Controller
         return view('pizzas.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'type' => 'required|string|not_in:0|max:255',
+            'base' => 'required|string|not_in:0|max:255',
+            'toppings' => 'nullable|array',
+            'toppings.*' => 'string|max:255',
+            'image_url' => 'required|string|not_in:0|max:255',
+        ]);
+
         $pizza = new Pizza();
 
-        $pizza->name = request('name');
-        $pizza->type = request('type');
-        $pizza->base = request('base');
-        $pizza->toppings = request('toppings');
+        $pizza->name = $validated['name'];
+        $pizza->type = $validated['type'];
+        $pizza->base = $validated['base'];
+        $pizza->toppings = $validated['toppings'] ?? [];
+        $pizza->image_url = $validated['image_url'];
 
         // error_log($pizza);
         $pizza->save();
 
-        return redirect('/')->with('mssg', 'Thank you for your order');
+        return redirect(route('pizzas.index'))->with('mssg', 'Thank you for your order');
     }
 
     public function destroy($id)

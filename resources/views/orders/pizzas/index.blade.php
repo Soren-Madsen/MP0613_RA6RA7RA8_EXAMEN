@@ -5,40 +5,47 @@
 @section('content')
     <div class="container">
         <div class="d-flex align-items-center justify-content-between mb-3">
-            <h1 class="h3 mb-0">Pizza <span class="text-danger">List</span></h1>
-            <a class="btn btn-primary" href="{{ route('pizzas.create') }}"><i class="fa-solid fa-plus"></i> Add Pizza</a>
+            <h1 class="h3 mb-0">Pizza <span class="text-danger">Orders</span></h1>
+            <a class="btn btn-primary" href="{{ route('order.create') }}"><i class="fa-solid fa-plus"></i> New Order</a>
         </div>
 
         <div class="card shadow-sm">
             <div class="card-body">
-                @if(count($pizzas) > 0)
+                @if(count($orders) > 0)
                     <div class="table-responsive">
                         <table class="table table-hover align-middle">
                             <thead class="table-light">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col"><i class="fas fa-pizza-slice"></i> Name</th>
-                                <th scope="col"><i class="fa fa-tag"></i> Type</th>
-                                <th scope="col"><i class="fa fa-layer-group"></i> Base</th>
+                                <th scope="col"><i class="fa fa-calendar"></i> Order Date</th>
+                                <th scope="col"><i class="fa fa-user"></i> User</th>
+                                <th scope="col"><i class="fa fa-flag"></i> Order Type</th>
+                                <th scope="col"><i class="fa fa-deaf"></i> Order Base</th>
                                 <th scope="col"><i class="fa fa-image"></i> Image</th>
                                 <th scope="col" class="text-end"><i class="fa fa-link"></i> Go</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($pizzas as $key => $pizza)
+                            @foreach($orders as $key => $order)
                                 <tr>
                                     <th scope="row">{{ $key + 1 }}</th>
-                                    <td>{{ $pizza->name  }}</td>
-                                    <td>{{ $pizza->type }}</td>
-                                    <td>{{ $pizza->base  }}</td>
                                     <td>
-                                        @if(!empty($pizza->image_url))
-                                            <img class="rounded" src="{{ $pizza->image_url }}" alt="Pizza image" style="max-width: 60px; height: auto;">
+                                        <i class="fa fa-calendar-alt"></i>
+                                        {{ $order->created_at->format('d.m.Y') }}
+                                        <i class="fa fa-clock"></i>
+                                        {{ $order->created_at->format('H:i:s') }}
+                                    </td>
+                                    <td>{{ $order->name }}</td>
+                                    <td>{{ $order->type }}</td>
+                                    <td>{{ $order->base }}</td>
+                                    <td>
+                                        @if(!empty($order->image_url))
+                                            <img class="rounded" src="{{ $order->image_url }}" alt="Order image" style="max-width: 60px; height: auto;">
                                         @endif
                                     </td>
                                     <td class="text-end">
                                         <a class="btn btn-sm btn-outline-warning"
-                                           href="{{ route('pizzas.show', $pizza->id) }}"
+                                           href="{{ route('order.show', $order->id) }}"
                                            title="See order details">
                                             <i class="fa fa-link"></i>
                                         </a>
